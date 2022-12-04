@@ -19,9 +19,9 @@ tag="${3:-latest}"
 AWS_DEFAULT_REGION="$(echo "$repository_url" | cut -d. -f4)"
 image_name="$(echo "$repository_url" | cut -d/ -f2)"
 
-(cd "$source_path" && docker build -t "$image_name" .)
+(cd "$source_path" && docker build -t "$image_name":$(git rev-parse HEAD) .)
 printf "begin docker login\n"
 aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin "$repository_url"
 #aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin "$repository_url"
-docker tag "$image_name" "$repository_url":"$tag"
-docker push "$repository_url":"$tag"
+docker tag "$image_name":$(git rev-parse HEAD) "$repository_url":$(git rev-parse HEAD)
+docker push "$repository_url":$(git rev-parse HEAD)

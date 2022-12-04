@@ -1,3 +1,6 @@
+data "external" "git_checkout" {
+  program = ["sh","${path.module}/get_sha.sh"]
+}
 resource "kubernetes_deployment" "k8s_deployment" {
   metadata {
     name = var.k8s_deployment
@@ -29,7 +32,7 @@ resource "kubernetes_deployment" "k8s_deployment" {
           name = "docker-cfg"
         }
         container {
-          image = "${aws_ecr_repository.repo.repository_url}:${var.tag}"
+          image = "${aws_ecr_repository.repo.repository_url}:${data.external.git_checkout.result.sha}"
           name  = "my-app"
           port {
             container_port = 8080
