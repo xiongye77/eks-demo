@@ -1,0 +1,55 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Install Phase - Nothing to do using latest Amazon Linux Docker Image for CodeBuild which has all AWS Tools - https://github.com/aws/aws-codebuild-docker-images/blob/master/al2/x86_64/standard/3.0/Dockerfile"
+  pre_build:
+      commands:
+        # Docker Image Tag with Date Time & Code Buiild Resolved Source Version
+        - TAG="$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+        - aws_account_id=`aws sts get-caller-identity --query "Account" --output text`
+        - echo $aws_account_id
+        # Update Image tag in our Kubernetes Deployment Manifest        
+        #- echo "Update Image tag in kube-manifest..."
+        #- CONTAINER_IMAGE=`more nginx-deploy.yaml |grep image |awk -F: '{print $3}'
+        #- echo $CONTAINER_IMAGE
+        
+        #- sed -i "s/$CONTAINER_IMAGE/gitops-demo:$TAG/g" nginx-deploy.yaml
+        # Verify AWS CLI Version        
+        - echo "Verify AWS CLI Version..."
+        - aws --version
+        # Login to ECR Registry for docker to push the image to ECR Repository
+        - echo "Login in to Amazon ECR..."
+        - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $aws_account_id.dkr.ecr.$AWS_REGION.amazonaws.com
+
+        # Update Kube config Home Directory
+        
+  build:
+    commands:
+      # Build Docker Image
+      - echo "Build started on `date`"
+      - echo "Building the Docker image..."
+      - docker build --tag $aws_account_id.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAME:$TAG .
+  post_build:
+    commands:
+      # Push Docker Image to ECR Repository
+      - echo "Build completed on `date`"
+      - echo "Pushing the Docker image to ECR Repository"
+      - docker push $aws_account_id.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAME:$TAG
+      - echo "Docker Image Push to ECR Completed -  gitops-demo:$TAG"    
+      - echo "machine github.com login dbaxy770928@hotmail.com password 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" > ~/.netrc
+      - git clone https://github.com/xiongye77/eks-gitops-demo.git
+      - cd eks-gitops-demo
+      - CONTAINER_IMAGE=`more nginx-deploy.yaml |grep image |awk -F':' '{print $3}'`
+      - echo $CONTAINER_IMAGE
+      - echo $TAG
+      - sed -i "s/$CONTAINER_IMAGE/$TAG/g" nginx-deploy.yaml
+      - aws_current_account_id=`more nginx-deploy.yaml |grep image |awk -F ':' '{print $2}' |awk -F '.' '{print $1}'`
+      - sed -i "s/$aws_current_account_id/$aws_account_id/g" nginx-deploy.yaml
+      - aws_current_region=`more nginx-deploy.yaml |grep image |awk -F ':' '{print $2}' |awk -F '.' '{print $4}'`
+      - sed -i "s/$aws_current_region/$AWS_REGION/g" nginx-deploy.yaml
+      - git config --global user.email "dbaxy770928@hotmail.com"
+      - git config --global user.name "Ye Xiong"
+      - git add *
+      - git commit -am "change version"
+      - git push

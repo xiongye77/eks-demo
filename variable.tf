@@ -26,6 +26,12 @@ variable "ecr_repo_name" {
   default = "ecr-repo-random-123456"
 }
 
+variable "codecommit_repo" {
+  description = "Name of Codecommit repo"
+  type        = string
+  default = "codecommit-repo-random-123456"
+}
+
 variable "tag" {
   description = "Tag to use for deployed Docker image"
   type        = string
@@ -50,7 +56,7 @@ variable "source_path" {
 
 variable "demo_dns_zone" {
   description = "Specific to your setup, pick a domain you have in route53"
-  default = "cmcloudlab0415.info"
+  default = "cmcloudlab0402.info"
 
 }
 

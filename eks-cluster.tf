@@ -28,7 +28,7 @@ resource "aws_eks_cluster" "eks_cluster" {
 resource "null_resource" "update_eks_kubectl" {
   depends_on = [aws_eks_cluster.eks_cluster]
   provisioner "local-exec" {
-        command = "aws eks --region ${var.aws_region} update-kubeconfig --name ${var.cluster_name}"
+        command = "mv  ~/.kube/config  ~/.kube/config.bak ; mv ~/.config/argocd/config  ~/.config/argocd/config.bak; aws eks --region ${var.aws_region} update-kubeconfig --name ${var.cluster_name}"
     }
 }
 
