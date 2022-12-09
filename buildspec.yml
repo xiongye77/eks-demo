@@ -36,8 +36,9 @@ phases:
       - echo "Build completed on `date`"
       - echo "Pushing the Docker image to ECR Repository"
       - docker push $aws_account_id.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAME:$TAG
-      - echo "Docker Image Push to ECR Completed -  gitops-demo:$TAG"    
-      - echo "machine github.com login dbaxy770928@hotmail.com password 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" > ~/.netrc
+      - echo "Docker Image Push to ECR Completed -  gitops-demo:$TAG"   
+      - echo $githubtoken 
+      - echo "machine github.com login dbaxy770928@hotmail.com password $githubtoken" > ~/.netrc
       - git clone https://github.com/xiongye77/eks-gitops-demo.git
       - cd eks-gitops-demo
       - CONTAINER_IMAGE=`more nginx-deploy.yaml |grep image |awk -F':' '{print $3}'`
@@ -45,7 +46,7 @@ phases:
       - echo $TAG
       - sed -i "s/$CONTAINER_IMAGE/$TAG/g" nginx-deploy.yaml
       - aws_current_account_id=`more nginx-deploy.yaml |grep image |awk -F ':' '{print $2}' |awk -F '.' '{print $1}'`
-      - sed -i "s/$aws_current_account_id/$aws_account_id/g" nginx-deploy.yaml
+      - sed -i "s/$aws_current_account_id/ $aws_account_id/g" nginx-deploy.yaml
       - aws_current_region=`more nginx-deploy.yaml |grep image |awk -F ':' '{print $2}' |awk -F '.' '{print $4}'`
       - sed -i "s/$aws_current_region/$AWS_REGION/g" nginx-deploy.yaml
       - git config --global user.email "dbaxy770928@hotmail.com"

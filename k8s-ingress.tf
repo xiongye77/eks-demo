@@ -34,6 +34,7 @@ resource "kubernetes_ingress_v1" "ingress_app1" {
       # Ingress Groups
       "alb.ingress.kubernetes.io/group.name" = "myapps.web"
       "alb.ingress.kubernetes.io/group.order" = 10
+      "alb.ingress.kubernetes.io/load-balancer-attributes" = "access_logs.s3.enabled=true,access_logs.s3.bucket=${aws_s3_bucket.alb_logging_bucket.id},access_logs.s3.prefix=ingress-groups-demo"
     }    
   }
 

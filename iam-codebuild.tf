@@ -53,6 +53,14 @@ resource "aws_iam_role_policy" "demo-codebuild" {
       "Resource": "${aws_codecommit_repository.demo.arn}"
     },
     {
+      "Sid": "SSMGET",
+      "Effect": "Allow",
+      "Action": [
+        "ssm:GetParameters"
+      ],
+      "Resource": "*"
+    },
+    {
       "Effect": "Allow",
       "Action": [
         "ec2:CreateNetworkInterface",
@@ -82,11 +90,11 @@ resource "aws_iam_role_policy" "demo-codebuild" {
         "ecr:PutImage"
       ],
       "Resource": [
-        "*"
+        "${aws_ecr_repository.repo.arn}"
       ]
     },
-    {
-      "Sid": "ECRAuthPolicy",
+     {
+      "Sid": "ECRToken",
       "Effect": "Allow",
       "Action": [
         "ecr:GetAuthorizationToken"
@@ -94,7 +102,8 @@ resource "aws_iam_role_policy" "demo-codebuild" {
       "Resource": [
         "*"
       ]
-    } 
+    }
+
   ]
 }
 POLICY
