@@ -56,7 +56,7 @@ variable "source_path" {
 
 variable "demo_dns_zone" {
   description = "Specific to your setup, pick a domain you have in route53"
-  default = "cmcloudlab446.info"
+  default = "cmcloudlab1446.info"
 
 }
 

@@ -41,14 +41,14 @@ phases:
       - echo "machine github.com login dbaxy770928@hotmail.com password $githubtoken" > ~/.netrc
       - git clone https://github.com/xiongye77/eks-gitops-demo.git
       - cd eks-gitops-demo
-      - CONTAINER_IMAGE=`more nginx-deploy.yaml |grep image |awk -F':' '{print $3}'`
+      - CONTAINER_IMAGE=`more k8s-deployment.yaml |grep image |awk -F':' '{print $3}'`
       - echo $CONTAINER_IMAGE
       - echo $TAG
-      - sed -i "s/$CONTAINER_IMAGE/$TAG/g" nginx-deploy.yaml
-      - aws_current_account_id=`more nginx-deploy.yaml |grep image |awk -F ':' '{print $2}' |awk -F '.' '{print $1}'`
-      - sed -i "s/$aws_current_account_id/ $aws_account_id/g" nginx-deploy.yaml
-      - aws_current_region=`more nginx-deploy.yaml |grep image |awk -F ':' '{print $2}' |awk -F '.' '{print $4}'`
-      - sed -i "s/$aws_current_region/$AWS_REGION/g" nginx-deploy.yaml
+      - sed -i "s/$CONTAINER_IMAGE/$TAG/g" k8s-deployment.yaml 
+      - aws_current_account_id=`more k8s-deployment.yaml |grep image |awk -F ':' '{print $2}' |awk -F '.' '{print $1}'`
+      - sed -i "s/$aws_current_account_id/ $aws_account_id/g" k8s-deployment.yaml
+      - aws_current_region=`more k8s-deployment.yaml |grep image |awk -F ':' '{print $2}' |awk -F '.' '{print $4}'`
+      - sed -i "s/$aws_current_region/$AWS_REGION/g" k8s-deployment.yaml
       - git config --global user.email "dbaxy770928@hotmail.com"
       - git config --global user.name "Ye Xiong"
       - git add *
