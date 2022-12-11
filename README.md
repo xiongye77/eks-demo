@@ -79,9 +79,23 @@ Since this pod does not have service account, so its access to SSM is denied
 
 
 10 Since the managed nodes are in ASG, more pods (triggered by hpa) deployed to namespaces will trigger EC2 instances added to ASG.
+
+
 11 horizontal pod autoscaler installed to scale in/out pods according to the amount of traffic.
+![image](https://user-images.githubusercontent.com/36766101/206883527-692e87c2-b803-4de6-8364-87a4900c81e9.png)
+![image](https://user-images.githubusercontent.com/36766101/206883706-6ec2ce7b-9597-4af1-8f58-e394f989bbae.png)
+![image](https://user-images.githubusercontent.com/36766101/206883795-cba29e66-6289-4cdb-bf9c-7205df6bee03.png)
+
+
+
 12 pod use service account assume AWS IAM role to access AWS SSM parameter data
-    
+![image](https://user-images.githubusercontent.com/36766101/206882348-5d5539a9-42f0-44a4-b3cf-d114436abc27.png)
+
+
+![image](https://user-images.githubusercontent.com/36766101/206883514-7a2186fa-b592-4175-a7e2-5a76b5922861.png)
+
+
+
 
 
 kubectl get events
