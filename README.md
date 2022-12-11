@@ -57,6 +57,7 @@ The third one will be deployed when sync Argo CD repo and will demonstrate CI/CD
 5 I added codecommit/codebuild/codepipeline to demo that when you change main.py file, codepipeline will automatically build ECR image and modify one public accessible github repo(https://github.com/xiongye77/eks-gitops-demo/blob/main/k8s-deployment.yaml#L23)  which is monitored by ArgoCD (Also deployed in the EKS cluster in dedicated namespace argocd).ArgoCD will sync the new version of docker image to replace the current one (All gitops resources include ingress/service/deployment/pod in dedicated namespace gitops-demo).
 ![image](https://user-images.githubusercontent.com/36766101/206882042-9538a03c-b8c9-4f87-a3d9-630d9cb06d36.png)
 
+Argocd login information in following files.
 ![image](https://user-images.githubusercontent.com/36766101/206882061-f35aa7b9-eced-4dff-940f-609ea91645ad.png)
 
 ![image](https://user-images.githubusercontent.com/36766101/206882071-c04688eb-d6f2-4566-a192-2fe556330d24.png)
