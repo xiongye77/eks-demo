@@ -95,7 +95,9 @@ We can use one scripe to generate work load which query the kubernetes service I
 pod use service account assume AWS IAM role to access AWS SSM parameter data
 ![image](https://user-images.githubusercontent.com/36766101/206882348-5d5539a9-42f0-44a4-b3cf-d114436abc27.png)
 
-I use pod anti affinity so all 3 pods will distribute to 3 EKS nodes (replica=3 in deployment file and min_replicas=3 in hpa files)
+I use pod anti affinity so all 3 pods will distribute to 3 EKS nodes (replica=3 in deployment file and min_replicas=3 in hpa files) to aviod single point of failure
+![image](https://user-images.githubusercontent.com/36766101/206896200-5c1f751f-446e-46da-bd6a-d69553989af2.png)
+
 ![image](https://user-images.githubusercontent.com/36766101/206883514-7a2186fa-b592-4175-a7e2-5a76b5922861.png)
 
 
