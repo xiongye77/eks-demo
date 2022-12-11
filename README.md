@@ -67,6 +67,7 @@ When synchronization from ArgoCD, it will create new ALB/Ingress/SVC/Deployment/
 Since this pod does not have service account, so its access to SSM is denied  
 ![image](https://user-images.githubusercontent.com/36766101/206882186-cb39682e-8314-49b3-b751-900b28143efc.png)
 
+The quick workaround here is remove # from line 134 to 137 of iam.tf file, so EKS nodes' role have the managed policy AmazonSSMManagedInstanceCore which can read from SSM, you can compare that even EKS nodes's role without this policy, the pod wtih service account can still read SSM. 
 ![image](https://user-images.githubusercontent.com/36766101/206882198-c9ac50b8-b4d3-46e1-8f10-306a9e04c85a.png)
 
 ![image](https://user-images.githubusercontent.com/36766101/206882213-ab2d083a-f951-4772-8641-7957c572934b.png)
