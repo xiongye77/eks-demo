@@ -1,6 +1,6 @@
 # eks-demo
 # Prerequisite
-1 The user who run the terraform code must have appropriate AWS role/privileges to create AWS assets(VPC/RDS/EKS/ALB/WAF) in destination AWS account
+1 The user who run the terraform code must have appropriate AWS role/privileges to create AWS assets(VPC/RDS/EKS/ALB/WAF) in destination AWS account.I used AWS region us-east-1 for the terraform deployment and wish you keep the same region so no code change needed.
 
 
 2 docker(build the docker image) and kubect (run kubernets command ) and argocd (demo gitops ) and awscli (login to ecr and run codecommit and add eks cluster to kubeconfig file) must be installed on a box which runs the terraform code. Version information as following
@@ -12,10 +12,8 @@
 
 
 
-3 I used AWS region us-east-1 for the terraform deployment and wish you keep the same region so no code change needed. 
-Since I need to apply ACM for ALB and DNS alias, I need a public Route53 hosted zone so that  ACM DNS verification can be passed. 
-Please change the demo_dns_zone variable in variable.tf file accordingly.For example,in following screen snapshot.add www.cmcloudlab458.info and 
-run dig command to verify it works as expected. The demo_dns_name.demo_dns_zone  will point to ALB for example, 
+3 Since I need to apply SSL certificate from ACM for ALB and use DNS alias for verification, I need a public Route53 hosted zone so that  ACM DNS verification can be passed. Please change the demo_dns_zone variable in variable.tf file accordingly.For example,in following screen snapshot.add www.cmcloudlab458.info and 
+run dig command to verify it dns verfication works as expected. The demo_dns_name.demo_dns_zone  will point to ALB for example, 
 for example in variable.tf,the demo_dns_name is ssldemo-eks-alb.The terraform output for ALB name is https://ssldemo-eks-alb.cmcloudlab458.info
 ![image](https://user-images.githubusercontent.com/36766101/206881858-6b8b7298-17a2-40b4-aef9-7631b565fc0c.png)
 
