@@ -28,9 +28,24 @@ resource "kubernetes_deployment" "k8s_deployment" {
 
       spec {
         service_account_name = kubernetes_service_account.pod_ssm_sa.metadata.0.name 
-        image_pull_secrets {
-          name = "docker-cfg"
+        affinity {
+          pod_anti_affinity {
+            preferred_during_scheduling_ignored_during_execution {
+              weight = 100
+              pod_affinity_term {
+               label_selector {
+                match_expressions {
+                  key = "app"
+                  operator = "In"
+                  values = ["my-app"]
+                }
+               }
+               topology_key = "kubernetes.io/hostname"
+              }
+            }
+          }
         }
+
         container {
           image = "${aws_ecr_repository.repo.repository_url}:${data.external.git_checkout.result.sha}"
           name  = "my-app"
