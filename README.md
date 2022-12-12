@@ -1,12 +1,15 @@
 # eks-demo 
 
-# Prerequisite
+# Prerequisite 
+0 I store terraform state file to local filesystem, obviously it is only suitable for test/demo purpose. For any production environment, S3+Dynamodb or Terraform cloud is the desriable option.
+
 1 The user who run the terraform code must have appropriate AWS role/privileges to create AWS assets(VPC/RDS/EKS/ALB/WAF) in destination AWS account.I used AWS region us-east-1 for the terraform deployment and wish you keep the same region so no code change needed.
 
 
-2 docker(build the docker image) and kubect (run kubernets command ) and argocd (demo gitops ) and awscli (login to ecr and run codecommit and add eks cluster to kubeconfig file) must be installed on a box which runs the terraform code. Version information as following
+2 docker(build the docker image) and kubect (run kubernets command ) and argocd (demo gitops ) and awscli (login to ecr and run codecommit and add eks cluster to kubeconfig file),terraform must be installed on a box which runs the terraform code.helm is optional one to check different components' version. Version information as following
 
 ![image](https://user-images.githubusercontent.com/36766101/206881819-27a9ee5e-183c-4b57-ad2d-197753878e2c.png)
+![image](https://user-images.githubusercontent.com/36766101/207177926-736e9880-8d47-4db2-9c7a-081c2a2af00b.png)
 
  
 
@@ -105,5 +108,7 @@ I use pod anti affinity so all 3 pods will distribute to 3 EKS nodes (replica=3 
 ![image](https://user-images.githubusercontent.com/36766101/206883514-7a2186fa-b592-4175-a7e2-5a76b5922861.png)
 
 
+8 Some packages use helm to isntall to different namespaces
+![image](https://user-images.githubusercontent.com/36766101/207176625-d496c25f-1b84-4986-a7ab-6f4fed266bbb.png)
 
 
