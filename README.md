@@ -34,6 +34,7 @@ aws ssm put-parameter  --name "my-github-token" --type "String" --value "xxxxxxx
 
 5 run terraform init after git clone from repo
 
+![image](https://user-images.githubusercontent.com/36766101/207231087-b65d0caa-6ce4-48e5-af3f-9430d173ab1f.png)
 
 
 # Basic function description:
