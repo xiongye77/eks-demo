@@ -110,6 +110,8 @@ I use pod anti affinity so all 3 pods will distribute to 3 EKS nodes (replica=3 
 
 ![image](https://user-images.githubusercontent.com/36766101/206883514-7a2186fa-b592-4175-a7e2-5a76b5922861.png)
 
+![image](https://user-images.githubusercontent.com/36766101/207303963-136f9e1b-15ba-4d8b-8a69-d441bf0cb471.png)
+
 
 8 Some packages use helm to isntall to different namespaces
 ![image](https://user-images.githubusercontent.com/36766101/207176625-d496c25f-1b84-4986-a7ab-6f4fed266bbb.png)
@@ -117,4 +119,10 @@ I use pod anti affinity so all 3 pods will distribute to 3 EKS nodes (replica=3 
 9 To use IAM roles for service accounts in your cluster, you must create an IAM OIDC Identity Provider.
 
 ![image](https://user-images.githubusercontent.com/36766101/207186245-a625b5b1-997e-42e4-b8b3-73c063013a79.png)
+
+10 Create 2 managed node group ,one is spot instance and another one is on demand instance 
+![image](https://user-images.githubusercontent.com/36766101/207291835-f6ccb898-fd0d-4fc4-b008-6389dfd27a53.png)
+
+![image](https://user-images.githubusercontent.com/36766101/207292042-cc9ceb72-3d5a-4066-9b4f-16d0c0359edb.png)
+
 
