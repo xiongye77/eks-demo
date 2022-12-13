@@ -50,7 +50,11 @@ Second one is the ArgoCD admin console(ArgoCD console url is in the argoserver_u
 
 The third one will be deployed when sync Argo CD repo and will demonstrate CI/CD pipeline/Gitops pipeline.
 
-2 I added additional RDS access to the pod main.py with RDS access information stored in AWS SSM.
+2 I added additional RDS access to the pod main.py with RDS access information stored in AWS SSM. Also added EFS to pod to simulate stateful workload 
+![image](https://user-images.githubusercontent.com/36766101/207304429-f80df0ac-5139-407a-a56a-85f5a16a9a5f.png)
+
+![image](https://user-images.githubusercontent.com/36766101/207304641-085b45df-e097-43b2-af67-cdade39aa069.png)
+
 
 3 I added WAF to protect the 1st ALB and one rule to the WAF so if one IP repeatedly accesses the ALB, will be blocked.
 ![image](https://user-images.githubusercontent.com/36766101/206881998-9ad65019-ddf5-4102-83c5-a3dac795fbe9.png)
