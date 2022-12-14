@@ -64,6 +64,11 @@ resource "kubernetes_deployment" "k8s_deployment" {
 
 
         container {
+          volume_mount {
+            name = "persistent-storage"
+            mount_path = "/data"
+          }
+
           image = "${aws_ecr_repository.repo.repository_url}:${data.external.git_checkout.result.sha}"
           name  = "my-app"
           port {
