@@ -1,7 +1,10 @@
 # eks-demo 
 
+# Gitops introduction
+
 ![image](https://user-images.githubusercontent.com/36766101/207481346-6839f595-36d3-4420-baba-63ab96a1a825.png)
 
+![image](https://user-images.githubusercontent.com/36766101/207506596-2064a66d-88d0-4df7-aab9-f36e06fa774d.png)
 
 
 # Prerequisite 
