@@ -11,7 +11,7 @@ resource "kubernetes_deployment" "k8s_deployment" {
   } 
  
   spec {
-    replicas = 1
+    replicas = 3
 
     selector {
       match_labels = {
@@ -26,8 +26,6 @@ resource "kubernetes_deployment" "k8s_deployment" {
         }
       }
 
-      spec {
-        service_account_name = kubernetes_service_account.pod_ssm_sa.metadata.0.name 
         affinity {
           pod_anti_affinity {
             preferred_during_scheduling_ignored_during_execution {
@@ -44,7 +42,26 @@ resource "kubernetes_deployment" "k8s_deployment" {
               }
             }
           }
+          node_affinity {
+            preferred_during_scheduling_ignored_during_execution {
+              weight = 100
+              preference {
+               match_expressions {
+                key      = "type_of_nodegroup"
+                operator = "In"
+                values   = ["spot"]
+               }
+              }
+           }
+          }
         }
+        volume {
+          name = "persistent-storage"
+          persistent_volume_claim {
+            claim_name = kubernetes_persistent_volume_claim_v1.efs_pvc.metadata[0].name
+          }
+        }
+
 
         container {
           image = "${aws_ecr_repository.repo.repository_url}:${data.external.git_checkout.result.sha}"
