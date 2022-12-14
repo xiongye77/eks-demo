@@ -1,9 +1,13 @@
 # eks-demo 
 
+![image](https://user-images.githubusercontent.com/36766101/207481346-6839f595-36d3-4420-baba-63ab96a1a825.png)
+
+
+
 # Prerequisite 
 
 
-0 I store terraform state file to local filesystem, obviously it is only suitable for test/demo purpose. For any production environment, S3+Dynamodb or Terraform cloud is the desriable option.
+0 I store terraform state file to workstation local filesystem, obviously it is only suitable for test/demo purpose. For any production environment, S3+Dynamodb or Terraform cloud is the desriable option.
 
 1 The user who run the terraform code must have appropriate AWS role/privileges to create AWS assets(VPC/RDS/EKS/ALB/WAF) in destination AWS account.I used AWS region us-east-1 for the terraform deployment and wish you keep the same region so no code change needed.
 
