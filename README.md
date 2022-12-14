@@ -105,7 +105,7 @@ The quick workaround here is remove # from line 134 to 137 of iam.tf file and ru
 6 Since the managed nodes are in ASG, more pods (triggered by hpa) deployed to namespaces will trigger EC2 instances added to ASG.
 
 
-7 horizontal pod autoscaler installed to scale in/out pods according to the amount of traffic.
+7 horizontal pod autoscaler installed to scale in/out pods according to the amount of traffic.Use the load-generate.sh to generate workload to scale out more pods.
 ![image](https://user-images.githubusercontent.com/36766101/206883527-692e87c2-b803-4de6-8364-87a4900c81e9.png)
 We can use one scripe to generate work load which query the kubernetes service IP to cause horizon pod autoscale based on predefined cpu usage (set to 20% to quickly scale out more pods)
 ![image](https://user-images.githubusercontent.com/36766101/206883706-6ec2ce7b-9597-4af1-8f58-e394f989bbae.png)
