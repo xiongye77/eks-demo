@@ -62,6 +62,9 @@ The third one will be deployed when sync Argo CD repo and will demonstrate CI/CD
 
 ![image](https://user-images.githubusercontent.com/36766101/207304641-085b45df-e097-43b2-af67-cdade39aa069.png)
 
+![image](https://user-images.githubusercontent.com/36766101/207837371-8fc68536-7c64-4076-8f82-83c1ad7179aa.png)
+
+
 
 3 I added WAF to protect the 1st ALB and one rule to the WAF so if one IP repeatedly accesses the ALB, will be blocked.
 ![image](https://user-images.githubusercontent.com/36766101/206881998-9ad65019-ddf5-4102-83c5-a3dac795fbe9.png)
@@ -133,6 +136,9 @@ pod use service account assume AWS IAM role to access AWS SSM parameter data
 
 ![image](https://user-images.githubusercontent.com/36766101/207303963-136f9e1b-15ba-4d8b-8a69-d441bf0cb471.png)
 
+
+11 cloudwatch loginsight can query pod log of specified namespace 
+![image](https://user-images.githubusercontent.com/36766101/207839212-1a1da3fa-5946-48ae-aeed-e232cd78c67f.png)
 
 
 
