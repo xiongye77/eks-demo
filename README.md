@@ -57,7 +57,9 @@ Second one is the ArgoCD admin console(ArgoCD console url is in the argoserver_u
 
 The third one will be deployed when sync Argo CD repo and will demonstrate CI/CD pipeline/Gitops pipeline.
 
-2 I added additional RDS access to the pod main.py with RDS access information stored in AWS SSM. Also added EFS to pod to simulate stateful workload 
+2 I added additional RDS access to the pod main.py with RDS access information stored in AWS SSM. 
+Also added EFS to pod to simulate stateful workload. login to one pod and write to /data file which can be checked from another pod.
+
 ![image](https://user-images.githubusercontent.com/36766101/207304429-f80df0ac-5139-407a-a56a-85f5a16a9a5f.png)
 
 ![image](https://user-images.githubusercontent.com/36766101/207304641-085b45df-e097-43b2-af67-cdade39aa069.png)
@@ -137,7 +139,7 @@ pod use service account assume AWS IAM role to access AWS SSM parameter data
 ![image](https://user-images.githubusercontent.com/36766101/207303963-136f9e1b-15ba-4d8b-8a69-d441bf0cb471.png)
 
 
-11 cloudwatch loginsight can query pod log of specified namespace 
+11 cloudwatch loginsight can query pod log of specified namespace and key words, so gradually elimnate the requirements for ElasticSearch/Sumo Logic for log analysis. 
 ![image](https://user-images.githubusercontent.com/36766101/207839212-1a1da3fa-5946-48ae-aeed-e232cd78c67f.png)
 
 
