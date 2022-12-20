@@ -71,6 +71,8 @@ Also added EFS to pod to simulate stateful workload. login to one pod and write 
 3 I added WAF to protect the 1st ALB and one rule to the WAF so if one IP repeatedly accesses the ALB, will be blocked.
 ![image](https://user-images.githubusercontent.com/36766101/206881998-9ad65019-ddf5-4102-83c5-a3dac795fbe9.png)
 
+![image](https://user-images.githubusercontent.com/36766101/208668437-d05a9f1c-298f-47e5-bdf2-44708ce9fb4d.png)
+
 
 4 I added an ALB access logging to S3 to 1st ALB.You can further analyze web traffic using AWS Athena.  
 ![image](https://user-images.githubusercontent.com/36766101/206882022-5d0b45c0-3534-41ce-aa4b-24eb6aff642e.png)
