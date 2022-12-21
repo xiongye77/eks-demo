@@ -160,6 +160,9 @@ pod use service account assume AWS IAM role to access AWS SSM parameter data
 
 ![image](https://user-images.githubusercontent.com/36766101/208661683-c3b7848d-96b5-4253-8f59-41c0e99c1c35.png)
 
+![image](https://user-images.githubusercontent.com/36766101/208826390-56a49f14-7712-4562-9317-7aa75784b278.png)
+
+
 ![image](https://user-images.githubusercontent.com/36766101/208662888-9821372b-f301-4a79-9b11-00d320ba53e3.png)
 
 ![image](https://user-images.githubusercontent.com/36766101/208664458-7d871617-acbb-4448-aa9e-eeb0df4f8d07.png)
