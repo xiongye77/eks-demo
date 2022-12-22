@@ -106,10 +106,14 @@ The quick workaround here is remove # from line 134 to 137 of iam.tf file and ru
 
 ![image](https://user-images.githubusercontent.com/36766101/206882229-438de609-e6d4-426c-b540-c80b04796cb5.png)
 
+6 I add AWS App mesh (AWS version istio) and virtual router to send traffic (50% vs 50%) to backend virtual nodes to simulate blue/green deployment. 
+
+![image](https://user-images.githubusercontent.com/36766101/209029918-3951cea2-ef06-48c3-a4ae-50c68d28da14.png)
+![image](https://user-images.githubusercontent.com/36766101/209030001-39e9c495-f1b6-41a6-95f2-624d713882be.png)
 
 
 
-6 Since the managed nodes are in ASG, more pods (triggered by hpa) deployed to namespaces will trigger EC2 instances added to ASG.
+7 Since the managed nodes are in ASG, more pods (triggered by hpa) deployed to namespaces will trigger EC2 instances added to ASG.
 
 
 7 horizontal pod autoscaler installed to scale in/out pods according to the amount of traffic.Use the load-generate.sh to generate workload to scale out more pods.
