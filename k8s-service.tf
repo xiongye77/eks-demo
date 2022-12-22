@@ -9,9 +9,9 @@ resource "kubernetes_service" "k8s_service" {
     }
     port {
       name        = "http"
-      port        = 80
+      port        = 8080
       target_port = 8080
     }
-    type = "NodePort"
+    type = "ClusterIP"
   }
 }
