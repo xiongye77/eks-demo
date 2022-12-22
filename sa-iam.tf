@@ -13,10 +13,10 @@ resource "aws_iam_role" "k8s_pod_iam_role" {
           Federated = "${aws_iam_openid_connect_provider.oidc_provider.arn}"
         }
         Condition = {
-          StringEquals = {            
+          StringEquals = {
             "${element(split("oidc-provider/", "${aws_iam_openid_connect_provider.oidc_provider.arn}"), 1)}:sub": "system:serviceaccount:${var.k8s_namespace}:pod-ssm-sa"
           }
-        }        
+        }
 
       },
     ]
@@ -34,6 +34,16 @@ resource "aws_iam_role_policy_attachment" "k8s_pod_iam_role_policy_attach" {
 }
 
 
+resource "aws_iam_role_policy_attachment" "k8s_pod_x_ray_role_policy_attach" {
+  policy_arn = "arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess"
+  role       = aws_iam_role.k8s_pod_iam_role.name
+}
+
+
+resource "aws_iam_role_policy_attachment" "k8s_pod_app_mesh_role_policy_attach" {
+  policy_arn = "arn:aws:iam::aws:policy/AWSAppMeshFullAccess"
+  role       = aws_iam_role.k8s_pod_iam_role.name
+}
 
 resource "aws_iam_policy" "k8s_sa_ssm_read" {
   name        = "iam_policy_k8s_sa_ssm_read"
