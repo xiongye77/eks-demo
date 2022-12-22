@@ -7,15 +7,17 @@ resource "kubernetes_deployment" "k8s_deployment" {
     namespace = kubernetes_namespace.k8s_ns.metadata.0.name
     labels = {
       app = "my-app"
+      version = "v1"
     }
-  } 
- 
+  }
+
   spec {
     replicas = 3
 
     selector {
       match_labels = {
         app = "my-app"
+        version = "v1"
       }
     }
 
@@ -23,9 +25,15 @@ resource "kubernetes_deployment" "k8s_deployment" {
       metadata {
         labels = {
           app = "my-app"
+          version = "v1"
         }
       }
 
+      spec {
+        service_account_name = kubernetes_service_account.pod_ssm_sa.metadata.0.name
+        #image_pull_secrets {
+        #  name = "docker-cfg"
+        #}
         affinity {
           pod_anti_affinity {
             preferred_during_scheduling_ignored_during_execution {
@@ -61,14 +69,11 @@ resource "kubernetes_deployment" "k8s_deployment" {
             claim_name = kubernetes_persistent_volume_claim_v1.efs_pvc.metadata[0].name
           }
         }
-
-
         container {
           volume_mount {
             name = "persistent-storage"
             mount_path = "/data"
           }
-
           image = "${aws_ecr_repository.repo.repository_url}:${data.external.git_checkout.result.sha}"
           name  = "my-app"
           port {
