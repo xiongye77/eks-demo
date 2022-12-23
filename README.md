@@ -144,6 +144,11 @@ pod use service account assume AWS IAM role to access AWS SSM parameter data
 
 ![image](https://user-images.githubusercontent.com/36766101/207303963-136f9e1b-15ba-4d8b-8a69-d441bf0cb471.png)
 
+spot instance will install  aws-node-termination-handler to graceful stop spot instance and avoid possible application interruption. 
+![image](https://user-images.githubusercontent.com/36766101/209257913-28c42186-b2c4-486f-bf36-95f0eb72a992.png)
+
+![image](https://user-images.githubusercontent.com/36766101/209257366-c816291b-0c4b-40da-a4b5-e109f2840f36.png)
+
 
 11 cloudwatch loginsight can query pod log of specified namespace and key words, so gradually elimnate the requirements for ElasticSearch/Sumo Logic for log analysis. 
 ![image](https://user-images.githubusercontent.com/36766101/207839212-1a1da3fa-5946-48ae-aeed-e232cd78c67f.png)
