@@ -5,6 +5,8 @@ resource "aws_eks_cluster" "eks_cluster" {
 
   vpc_config {
     subnet_ids = [aws_subnet.eks-test-private-1a.id, aws_subnet.eks-test-private-1b.id]
+    #endpoint_private_access = true
+    #endpoint_public_access  = false
   }
 
   #kubernetes_network_config {
