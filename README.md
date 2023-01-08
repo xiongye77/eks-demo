@@ -153,7 +153,15 @@ spot instance will install  aws-node-termination-handler to graceful stop spot i
 11 cloudwatch loginsight can query pod log of specified namespace and key words, so gradually elimnate the requirements for ElasticSearch/Sumo Logic for log analysis. 
 ![image](https://user-images.githubusercontent.com/36766101/207839212-1a1da3fa-5946-48ae-aeed-e232cd78c67f.png)
 
-12 next step : Kubescape for security and Backup and restore using Velero
+12 next step : Kubescape for security (Kubescape tests whether a Kubernetes cluster is deployed securely 
+according to multiple frameworks: regulatory, customized company policies, and 
+DevSecOps best practices, such as the NSA/CISA and MITRE ATT&CK)  
+
+13 next step: Backup and restore using Velero (It's always recommended 
+to back up your production Kubernetes cluster resources.)
+
+14 next step: Chaos Engineering with AWS Fault Injection Simulator on an EKS cluster worker node
+
 
 ![image](https://user-images.githubusercontent.com/36766101/207834904-2561987b-3fd7-43b0-9ff1-18381e68031f.png)
 
