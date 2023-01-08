@@ -153,7 +153,7 @@ spot instance will install  aws-node-termination-handler to graceful stop spot i
 11 cloudwatch loginsight can query pod log of specified namespace and key words, so gradually elimnate the requirements for ElasticSearch/Sumo Logic for log analysis. 
 ![image](https://user-images.githubusercontent.com/36766101/207839212-1a1da3fa-5946-48ae-aeed-e232cd78c67f.png)
 
-
+12 next step : Kubescape for security and Backup and restore using Velero
 
 ![image](https://user-images.githubusercontent.com/36766101/207834904-2561987b-3fd7-43b0-9ff1-18381e68031f.png)
 
