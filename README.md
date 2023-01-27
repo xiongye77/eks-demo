@@ -162,6 +162,9 @@ to back up your production Kubernetes cluster resources.)
 
 14 next step: Chaos Engineering with AWS Fault Injection Simulator on an EKS cluster worker node
 
+15 next step: Karpenter automatically provisions new nodes in response to unschedulable pods. Karpenter does this by observing events within the Kubernetes cluster, and then sending commands to the underlying cloud provider
+https://kubesandclouds.com/index.php/2022/01/04/karpenter-vs-cluster-autoscaler/
+
 
 ![image](https://user-images.githubusercontent.com/36766101/207834904-2561987b-3fd7-43b0-9ff1-18381e68031f.png)
 
