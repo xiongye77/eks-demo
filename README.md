@@ -165,6 +165,10 @@ to back up your production Kubernetes cluster resources.)
 15 next step: Karpenter automatically provisions new nodes in response to unschedulable pods. Karpenter does this by observing events within the Kubernetes cluster, and then sending commands to the underlying cloud provider
 https://kubesandclouds.com/index.php/2022/01/04/karpenter-vs-cluster-autoscaler/
 
+16 next step: Security groups for pods Security groups for pods integrate Amazon EC2 security groups with Kubernetes pods. You can use Amazon EC2 security groups to define rules that allow inbound and outbound network traffic to and from pods
+https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
+
+17 next step:Securing cluster by using network policies.Use Project Calico to enforce Kubernetes network policies in cluster.https://www.tigera.io/project-calico/
 
 ![image](https://user-images.githubusercontent.com/36766101/207834904-2561987b-3fd7-43b0-9ff1-18381e68031f.png)
 
