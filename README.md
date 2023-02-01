@@ -202,3 +202,15 @@ https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
 ![image](https://user-images.githubusercontent.com/36766101/208668651-e9ffd55a-049b-4cca-bedc-8612af0c2c6f.png)
 
 ![image](https://user-images.githubusercontent.com/36766101/208814456-7a934ec2-9514-466c-9538-9da35715c90e.png)
+
+
+Use RBCA to control access to Secret 
+![image](https://user-images.githubusercontent.com/36766101/215916024-079fbb97-1050-4f31-901d-fee24cc464c0.png)
+
+
+# Gives Access to our IAM Roles to EKS Cluster
+In order to give access to the IAM Roles we defined previously to our EKS cluster, we need to add specific mapRoles to the aws-auth ConfigMap
+
+The Advantage of using Role to access the cluster instead of specifying directly IAM users is that it will be easier to manage: we won’t have to update the ConfigMap each time we want to add or remove users, we will just need to add or remove users from the IAM Group and we just configure the ConfigMap to allow the IAM Role associated to the IAM Group.
+
+# Enabling IAM Roles for Service Accounts on your Cluster
