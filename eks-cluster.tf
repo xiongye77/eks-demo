@@ -7,6 +7,8 @@ resource "aws_eks_cluster" "eks_cluster" {
     subnet_ids = [aws_subnet.eks-test-private-1a.id, aws_subnet.eks-test-private-1b.id]
     #endpoint_private_access = true
     #endpoint_public_access  = false
+    #public_access_cidrs =  [var.my_ip/32]
+    # for security reason can allow only access Kubernetes API server from company public IP and bastion host IP instead of public accessible 
   }
 
   #kubernetes_network_config {
