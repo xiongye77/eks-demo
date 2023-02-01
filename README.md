@@ -171,6 +171,12 @@ https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
 17 next step:Securing cluster by using network policies.Use Project Calico to enforce Kubernetes network policies in cluster.https://www.tigera.io/project-calico/
 
 18 next step: Installing or updating the Amazon VPC CNI plugin for Kubernetes metrics helper add-on  https://docs.aws.amazon.com/eks/latest/userguide/cni-metrics-helper.html
+
+Amazon EKS implements cluster networking through the Amazon VPC Container Network Interface(VPC CNI) plugin. The CNI plugin allows Kubernetes Pods to have the same IP address as they do on the VPC network. 
+
+19 next step: ExternalDNS with Amazon EKS ,ExternalDNS automates updating DNS records so that you can deploy a public facing application using just Kubernetes
+
+
 ![image](https://user-images.githubusercontent.com/36766101/216001994-78dfefb6-a6f7-4d4c-85e6-47f82374ae6a.png)
 
 
