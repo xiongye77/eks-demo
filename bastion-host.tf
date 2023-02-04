@@ -55,3 +55,28 @@ resource "aws_instance" "bastion_host-1a" {
     Terraform = true
   }
 }
+
+
+resource "aws_iam_role" "bastion_host_role" {
+  name = "bastion-host-role"
+
+  assume_role_policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+POLICY
+}
+
+resource "aws_iam_role_policy_attachment" "bastionhost-AmazonEC2SSM" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+  role       = aws_iam_role.bastion_host_role.name
+}
