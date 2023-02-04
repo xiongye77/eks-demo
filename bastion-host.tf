@@ -44,7 +44,8 @@ resource "aws_security_group" "eks_bastion_sg" {
 
 resource "aws_instance" "bastion_host-1a" {
   #ami = "ami-09b42976632b27e9b" ami-0912f71e06545ad88 https://aws.amazon.com/amazon-linux-ami/
-  ami = data.aws_ami.amazon-linux-2-bastion.id  
+  ami = data.aws_ami.amazon-linux-2-bastion.id
+  iam_instance_profile = aws_iam_instance_profile.bastion_host.name
   instance_type = "t2.medium"
   key_name = aws_key_pair.eks_public_key.key_name
   associate_public_ip_address = true
@@ -79,4 +80,11 @@ POLICY
 resource "aws_iam_role_policy_attachment" "bastionhost-AmazonEC2SSM" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
   role       = aws_iam_role.bastion_host_role.name
+}
+
+
+resource "aws_iam_instance_profile" "bastion_host" {
+  name = "bastion_host_instance_profile"
+  path = "/"
+  role = aws_iam_role.bastion_host_role.name
 }
