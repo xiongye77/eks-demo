@@ -166,7 +166,13 @@ DevSecOps best practices, such as the NSA/CISA and MITRE ATT&CK)
 
 curl -s https://raw.githubusercontent.com/armosec/kubescape/master/install.sh | /bin/bash 
 
-kubescape list frameworks kubescape scan framework nsa --exclude-names kube-system
+kubescape list frameworks 
+![image](https://user-images.githubusercontent.com/36766101/216764616-3fd553a3-8b34-4c4e-b036-a32f431afca0.png)
+
+kubescape scan framework nsa --exclude-namespaces kube-system -v
+![image](https://user-images.githubusercontent.com/36766101/216765038-f2f061d2-57b0-4b82-9ccb-9441a7239d39.png)
+
+![image](https://user-images.githubusercontent.com/36766101/216764722-a9fa03c1-5f6f-48b4-8221-54539a723fd9.png)
 
 
 13 next step: Backup and restore using Velero (It's always recommended to back up your production Kubernetes cluster resources.)
@@ -226,6 +232,9 @@ Amazon EKS implements cluster networking through the Amazon VPC Container Networ
 ![image](https://user-images.githubusercontent.com/36766101/208814456-7a934ec2-9514-466c-9538-9da35715c90e.png)
 
 
+![image](https://user-images.githubusercontent.com/36766101/216764970-1a6bcc72-3aa6-40ad-bd5e-80f91d6b79a4.png)
+
+
 Use RBCA to control access to Secret 
 ![image](https://user-images.githubusercontent.com/36766101/215916024-079fbb97-1050-4f31-901d-fee24cc464c0.png)
 
@@ -237,7 +246,7 @@ The Advantage of using Role to access the cluster instead of specifying directly
 
 # Enabling IAM Roles for Service Accounts on your Cluster
 
-# In Amazon EKS 1.23, we will be changing the default runtime from Docker to containerd. This means 1.22 will be the last release with Docker container runtime support. It is recommended that you test your workloads using containerd during the 1.21 lifecycle so you can make sure you don’t depend on any Docker specific features such as mounting the Docker socket or using docker-in-docker for container builds.
+In Amazon EKS 1.23, we will be changing the default runtime from Docker to containerd. This means 1.22 will be the last release with Docker container runtime support. It is recommended that you test your workloads using containerd during the 1.21 lifecycle so you can make sure you don’t depend on any Docker specific features such as mounting the Docker socket or using docker-in-docker for container builds.
 
 To most simple word, container runtime is software that runs containers
 ![image](https://user-images.githubusercontent.com/36766101/216730756-5056458a-d57b-4b84-b9ca-03e64eaa356b.png)
