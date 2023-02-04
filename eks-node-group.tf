@@ -93,8 +93,8 @@ resource "aws_eks_node_group" "eks_ng_private_ondemand" {
     aws_iam_role_policy_attachment.eks-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.eks-AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.eks-AmazonEC2ContainerRegistryReadOnly,
-    #aws_iam_role_policy_attachment.eks-AmazonEC2SSM,  # if EKS node with this role, we can aws session manager to access eks node, but if without it, pod without service account assume IAM
- role could not access SSM
+    #aws_iam_role_policy_attachment.eks-AmazonEC2SSM,  
+    # if EKS node with this role, we can aws session manager to access eks node, but if without it, pod without service account assume IAM role could not access SSM
     aws_iam_role_policy_attachment.eks_cloudwatch_container_insights
     #kubernetes_config_map_v1.aws_auth
   ]
