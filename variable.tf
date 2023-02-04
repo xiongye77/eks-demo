@@ -8,7 +8,10 @@ variable "k8s_namespace"{
   default = "my-eks-app"
 }
 
-
+variable "my_company_public_ip"
+  type = string
+  default = "52.62.194.106/32"
+}
 variable "k8s_deployment"{
   type = string
   default = "my-app"
