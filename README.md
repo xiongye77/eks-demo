@@ -164,8 +164,13 @@ spot instance will install  aws-node-termination-handler to graceful stop spot i
 according to multiple frameworks: regulatory, customized company policies, and 
 DevSecOps best practices, such as the NSA/CISA and MITRE ATT&CK)  
 
-13 next step: Backup and restore using Velero (It's always recommended 
-to back up your production Kubernetes cluster resources.)
+curl -s https://raw.githubusercontent.com/armosec/kubescape/master/install.sh | /bin/bash 
+
+kubescape scan framework nsa --exclude-names kube-system
+
+
+13 next step: Backup and restore using Velero (It's always recommended to back up your production Kubernetes cluster resources.)
+
 
 14 next step: Chaos Engineering with AWS Fault Injection Simulator on an EKS cluster worker node
 
