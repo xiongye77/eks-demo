@@ -5,9 +5,9 @@ resource "aws_eks_cluster" "eks_cluster" {
 
   vpc_config {
     subnet_ids = [aws_subnet.eks-test-private-1a.id, aws_subnet.eks-test-private-1b.id]
-    #endpoint_private_access = true
-    #endpoint_public_access  = false
-    #public_access_cidrs =  [var.my_ip/32]
+    endpoint_private_access = true
+    endpoint_public_access  = false
+    #public_access_cidrs =  [var.my_company_public_ip/32]
     # for security reason can allow only access Kubernetes API server from company public IP and bastion host IP instead of public accessible 
   }
 
