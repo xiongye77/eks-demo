@@ -166,7 +166,7 @@ DevSecOps best practices, such as the NSA/CISA and MITRE ATT&CK)
 
 curl -s https://raw.githubusercontent.com/armosec/kubescape/master/install.sh | /bin/bash 
 
-kubescape scan framework nsa --exclude-names kube-system
+kubescape list frameworks kubescape scan framework nsa --exclude-names kube-system
 
 
 13 next step: Backup and restore using Velero (It's always recommended to back up your production Kubernetes cluster resources.)
