@@ -37,9 +37,15 @@ for example in variable.tf,the demo_dns_name is ssldemo-eks-alb.The terraform ou
 
 4 One manual pre-step is create AWS SSM parameter for github token since the github token could not be checkin to github or it will be revoked. 
 I need the github token to demo ArgoCD gitops.(https://argo-cd.readthedocs.io/en/stable/)
+
+
 aws ssm put-parameter  --name "my-github-token" --type "String" --value "xxxxxxxxx" --region "us-east-1"
 
-5 run terraform init after git clone from repo
+5 for security reason, I set eks public access only by specific IP, please change my_company_public_ip to allow access to eks public endpoint 
+
+6 run terraform init and terraform apply in backend directory after git clone from repo then return to the previous directory run terraform init and terraform apply
+
+
 
 ![image](https://user-images.githubusercontent.com/36766101/207231087-b65d0caa-6ce4-48e5-af3f-9430d173ab1f.png)
 
