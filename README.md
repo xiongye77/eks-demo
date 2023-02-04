@@ -136,7 +136,8 @@ pod use service account assume AWS IAM role to access AWS SSM parameter data
 8 Some packages use helm to isntall to different namespaces
 ![image](https://user-images.githubusercontent.com/36766101/207176625-d496c25f-1b84-4986-a7ab-6f4fed266bbb.png)
 
-9 To use IAM roles for service accounts in your cluster, you must create an IAM OIDC Identity Provider.
+9 To use IAM roles for service accounts in your cluster, you must create an IAM OIDC (OpenID Connect) Identity Provider.
+OpenID Connect allows you to use JWTs to authenticate using third-party authentication services.
 
 ![image](https://user-images.githubusercontent.com/36766101/207186245-a625b5b1-997e-42e4-b8b3-73c063013a79.png)
 
@@ -224,3 +225,9 @@ In order to give access to the IAM Roles we defined previously to our EKS cluste
 The Advantage of using Role to access the cluster instead of specifying directly IAM users is that it will be easier to manage: we won’t have to update the ConfigMap each time we want to add or remove users, we will just need to add or remove users from the IAM Group and we just configure the ConfigMap to allow the IAM Role associated to the IAM Group.
 
 # Enabling IAM Roles for Service Accounts on your Cluster
+
+# In Amazon EKS 1.23, we will be changing the default runtime from Docker to containerd. This means 1.22 will be the last release with Docker container runtime support. It is recommended that you test your workloads using containerd during the 1.21 lifecycle so you can make sure you don’t depend on any Docker specific features such as mounting the Docker socket or using docker-in-docker for container builds.
+
+To most simple word, container runtime is software that runs containers
+![image](https://user-images.githubusercontent.com/36766101/216730756-5056458a-d57b-4b84-b9ca-03e64eaa356b.png)
+![image](https://user-images.githubusercontent.com/36766101/216730822-f1871b9a-714e-4caa-bfbc-2444a142bab4.png)
