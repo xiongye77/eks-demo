@@ -181,7 +181,24 @@ kubescape scan framework nsa --exclude-namespaces kube-system -v
 
 ![image](https://user-images.githubusercontent.com/36766101/216871803-9c786bfb-5d08-4115-997d-a13eec5294e7.png)
 
-14 next step: Chaos Engineering with AWS Fault Injection Simulator on an EKS cluster worker node
+15 next step: Chaos Engineering with AWS Fault Injection Simulator on an EKS cluster worker node
+
+16 next step: Isolate the Pod by creating a Network Policy that denies all ingress and egress traffic to the pod
+A deny all traffic rule may help stop an attack that is already underway by severing all connections to the pod. The following Network Policy will apply to a pod with the label app=web.
+
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny
+spec:
+  podSelector:
+    matchLabels: 
+      app: web
+  policyTypes:
+  - Ingress
+  - Egress
+
 
 15 next step: Karpenter automatically provisions new nodes in response to unschedulable pods. Karpenter does this by observing events within the Kubernetes cluster, and then sending commands to the underlying cloud provider
 https://kubesandclouds.com/index.php/2022/01/04/karpenter-vs-cluster-autoscaler/
