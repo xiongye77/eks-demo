@@ -160,6 +160,8 @@ spot instance will install  aws-node-termination-handler to graceful stop spot i
 11 cloudwatch loginsight can query pod log of specified namespace and key words, so gradually elimnate the requirements for ElasticSearch/Sumo Logic for log analysis. 
 ![image](https://user-images.githubusercontent.com/36766101/207839212-1a1da3fa-5946-48ae-aeed-e232cd78c67f.png)
 
+
+# next step https://aws.github.io/aws-eks-best-practices/security/docs/
 12 next step : Kubescape for security (Kubescape tests whether a Kubernetes cluster is deployed securely 
 according to multiple frameworks: regulatory, customized company policies, and 
 DevSecOps best practices, such as the NSA/CISA and MITRE ATT&CK)  
@@ -186,18 +188,8 @@ kubescape scan framework nsa --exclude-namespaces kube-system -v
 16 next step: Isolate the Pod by creating a Network Policy that denies all ingress and egress traffic to the pod
 A deny all traffic rule may help stop an attack that is already underway by severing all connections to the pod. The following Network Policy will apply to a pod with the label app=web.
 
+![image](https://user-images.githubusercontent.com/36766101/216926306-7b3f3eca-3d0e-4f3e-bb66-c81d2de241ba.png)
 
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: default-deny
-spec:
-  podSelector:
-    matchLabels: 
-      app: web
-  policyTypes:
-  - Ingress
-  - Egress
 
 
 15 next step: Karpenter automatically provisions new nodes in response to unschedulable pods. Karpenter does this by observing events within the Kubernetes cluster, and then sending commands to the underlying cloud provider
