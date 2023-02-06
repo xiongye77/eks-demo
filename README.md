@@ -190,6 +190,19 @@ A deny all traffic rule may help stop an attack that is already underway by seve
 
 ![image](https://user-images.githubusercontent.com/36766101/216926306-7b3f3eca-3d0e-4f3e-bb66-c81d2de241ba.png)
 
+16 Container immutability can help make containerized applications more secure
+
+kubectl get pod -n dev -o yaml web-frontend
+Because runAsUser is set to 0, this Pod is running as the root user and cannot be considered immutable.
+
+kubectl get pod -n dev -o yaml auth-rest
+Because readOnlyRootFileSystem is set to true and allowPrivilegeEscalation is set to false, this Pod is immutable.
+
+kubectl get pod -n dev -o yaml user-svc
+Because readOnlyRootFileSystem and allowPrivilegeEscalation are both set to false, this Pod is not immutable.
+
+17 kube-bench is a popular open source CIS Kubernetes Benchmark assessment tool created by AquaSecurity. kube-bench is a Go application that checks whether Kubernetes is deployed securely by running the checks documented in the CIS Kubernetes Benchmark. Tests are configured with YAML files, and this makes kube-bench easy to update as test specifications evolve. AquaSecurity is an AWS Advanced Technology Partner. https://github.com/aquasecurity/kube-bench/blob/main/docs/running.md#running-cis-benchmark-in-an-eks-cluster
+
 
 
 15 next step: Karpenter automatically provisions new nodes in response to unschedulable pods. Karpenter does this by observing events within the Kubernetes cluster, and then sending commands to the underlying cloud provider
