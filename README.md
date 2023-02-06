@@ -177,6 +177,9 @@ kubescape scan framework nsa --exclude-namespaces kube-system -v
 
 13 next step: Backup and restore using Velero (It's always recommended to back up your production Kubernetes cluster resources.)
 
+14 next step: Use Faclo to perform behavioral analytics
+
+![image](https://user-images.githubusercontent.com/36766101/216871803-9c786bfb-5d08-4115-997d-a13eec5294e7.png)
 
 14 next step: Chaos Engineering with AWS Fault Injection Simulator on an EKS cluster worker node
 
