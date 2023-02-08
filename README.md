@@ -161,7 +161,10 @@ spot instance will install  aws-node-termination-handler to graceful stop spot i
 ![image](https://user-images.githubusercontent.com/36766101/207839212-1a1da3fa-5946-48ae-aeed-e232cd78c67f.png)
 
 
-# next step https://aws.github.io/aws-eks-best-practices/security/docs/
+# next step 
+
+12 next step : EKS security https://aws.github.io/aws-eks-best-practices/security/docs/
+
 12 next step : Kubescape for security (Kubescape tests whether a Kubernetes cluster is deployed securely 
 according to multiple frameworks: regulatory, customized company policies, and 
 DevSecOps best practices, such as the NSA/CISA and MITRE ATT&CK)  
