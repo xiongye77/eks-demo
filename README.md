@@ -219,6 +219,8 @@ Amazon EKS implements cluster networking through the Amazon VPC Container Networ
 
 19 next step: ExternalDNS with Amazon EKS ,ExternalDNS automates updating DNS records so that you can deploy a public facing application using just Kubernetes
 
+20 next step: Kubernetes Operator. A Kubernetes Operator uses the Kubernetes API to create, configure, and manage instances of complex stateful applications on behalf of a Kubernetes user. There is a public repository called OperatorHub.io that is designed to be the public registry for finding Kubernetes Operator backend services. 
+
 
 ![image](https://user-images.githubusercontent.com/36766101/216001994-78dfefb6-a6f7-4d4c-85e6-47f82374ae6a.png)
 
