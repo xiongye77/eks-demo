@@ -224,6 +224,11 @@ Amazon EKS implements cluster networking through the Amazon VPC Container Networ
 
 20 next step: Kubernetes Operator. A Kubernetes Operator uses the Kubernetes API to create, configure, and manage instances of complex stateful applications on behalf of a Kubernetes user. There is a public repository called OperatorHub.io that is designed to be the public registry for finding Kubernetes Operator backend services. 
 
+21 kubectl cp command to copy file from pod to/from local
+kubectl cp <source-file-path> <destination-file-path>
+kubectl cp /<path-to-your-file>/<file-name> <pod-name>:<fully-qualified-file-name> -c <container-name>
+kubectl cp <pod-name>:<fully-qualified-file-name> /<path-to-your-file>/<file-name> -c <container-name>
+
 
 ![image](https://user-images.githubusercontent.com/36766101/216001994-78dfefb6-a6f7-4d4c-85e6-47f82374ae6a.png)
 
