@@ -290,3 +290,12 @@ In Amazon EKS 1.23, we will be changing the default runtime from Docker to conta
 To most simple word, container runtime is software that runs containers
 ![image](https://user-images.githubusercontent.com/36766101/216730756-5056458a-d57b-4b84-b9ca-03e64eaa356b.png)
 ![image](https://user-images.githubusercontent.com/36766101/216730822-f1871b9a-714e-4caa-bfbc-2444a142bab4.png)
+
+
+# AWS backup to copy Dynamodb back to another account and another region (2023/03/01)
+
+![image](https://user-images.githubusercontent.com/36766101/222131815-87de8018-192d-46af-97f7-3b2cfd589c40.png)
+![image](https://user-images.githubusercontent.com/36766101/222131855-b168ba07-d10b-4b9d-bba7-8a0c31a35492.png)
+
+# AWS Dynamodb backup to another account/region S3 bucket and import 
+![image](https://user-images.githubusercontent.com/36766101/222132735-b7a4ce40-04b1-4116-baef-fdb666267d0e.png)
