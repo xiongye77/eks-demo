@@ -300,3 +300,28 @@ To most simple word, container runtime is software that runs containers
 
 # AWS Dynamodb backup to another account/region S3 bucket and import 
 ![image](https://user-images.githubusercontent.com/36766101/222132735-b7a4ce40-04b1-4116-baef-fdb666267d0e.png)
+
+# Lesson learned while scaling Kubernetes cluster to 1000 pods in AWS EKS
+# VPC should have a sufficient free IP address pool 
+Make sure the VPC where you deploy your pods should have sufficient IP blocks. For deploying 1000 pods, you at least start with /21 CIDR blocks (or depending upon your requirement)so that you have at least 1000 free IP addresses, also take into account future growth.
+
+# AWS Quota limit 
+For the All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests there is a quota limit set to 96 instances which may or may not be enough for this use case
+
+# Run one EKS cluster per VPC
+AWS recommends one EKS cluster per VPC so that Kubernetes will be the only consumer of IP address within the VPC.
+
+# Use of bottlerocket OS vs Amazon Linux EKS optimized AMI
+Bottlerocket is an open-source operating system that’s purpose built for running containers. Many general operating systems have the vast majority of software they never need, contributing to the additional overhead on the nodes. 
+
+# Use of Karpenter as cluster auto-scaler: 
+One of the biggest advantages of using Karpenter vs. Cluster AutoScaler is Karpenter directly calls the EC2 API to launch or remove nodes as well as dynamically chooses the best EC2 instance types(as shown in the code below)or computes resources for the workload, whereas in case Cluster AutoScaler working on AutoScaling group that needs to homogenous, i.e., all the servers need to be of the same configuration(same CPU and RAM).Use of Karpenter as cluster auto-scaler: One of the biggest advantages of using Karpenter vs. Cluster AutoScaler is Karpenter directly calls the EC2 API to launch or remove nodes as well as dynamically chooses the best EC2 instance types(as shown in the code below)or computes resources for the workload, whereas in case Cluster AutoScaler working on AutoScaling group that needs to homogenous, i.e., all the servers need to be of the same configuration(same CPU and RAM).
+
+# Choose instance type for worker node: 
+Choose the instance type for the worker node: You need to choose the instance type where you run your workload. Here you will see the advantage of using Karpenter, which automatically chooses the instance type which doesn’t need to be homogenous.
+
+# CloudWatch Container Insight: 
+Use of container insight for centralized logging and metrics: To figure out what’s going on in your application pods, we need an agent that forward all the logs and metrics to a centralized location for easy searching and analysis.CloudWatch Container Insights provides a single pane to view all the metrics and logs.
+
+# Setting up right resource limits: 
+Once you are done with scalability testing and come up with optimal configuration, setting up the resource limit is critical. You don’t want to set the resource limit too low, as Kubernetes will schedule more pods on worker nodes with a low limit. Now, if these pods get busy simultaneously, there won’t be enough resources for each pod to hit its CPU limits. This will lead to contention and performance degradation in your application.
