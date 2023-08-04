@@ -323,5 +323,9 @@ Choose the instance type for the worker node: You need to choose the instance ty
 # CloudWatch Container Insight: 
 Use of container insight for centralized logging and metrics: To figure out what’s going on in your application pods, we need an agent that forward all the logs and metrics to a centralized location for easy searching and analysis.CloudWatch Container Insights provides a single pane to view all the metrics and logs.
 
+# EKS Security and Networking
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/4e4ffe06-19aa-4929-bfc4-e9d14b4dfe2a)
+
+
 # Setting up right resource limits: 
 Once you are done with scalability testing and come up with optimal configuration, setting up the resource limit is critical. You don’t want to set the resource limit too low, as Kubernetes will schedule more pods on worker nodes with a low limit. Now, if these pods get busy simultaneously, there won’t be enough resources for each pod to hit its CPU limits. This will lead to contention and performance degradation in your application.
