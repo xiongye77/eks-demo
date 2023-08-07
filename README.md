@@ -210,6 +210,8 @@ Because readOnlyRootFileSystem and allowPrivilegeEscalation are both set to fals
 
 15 next step: Karpenter automatically provisions new nodes in response to unschedulable pods. Karpenter does this by observing events within the Kubernetes cluster, and then sending commands to the underlying cloud provider
 https://kubesandclouds.com/index.php/2022/01/04/karpenter-vs-cluster-autoscaler/
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/5957fec6-42ef-4e54-b698-3368e8c27ff6)
+Karpenter configuration comes in the form of a Provisioner CRD (Custom Resource Definition). A single Karpenter Provisioner is capable of handling many different Pod shapes. Karpenter makes scheduling and provisioning decisions based on Pod attributes such as labels and affinity. A cluster may have more than one Provisioner, but for the moment we'll declare just one: the default Provisioner.
 
 16 next step: Security groups for pods Security groups for pods integrate Amazon EC2 security groups with Kubernetes pods. You can use Amazon EC2 security groups to define rules that allow inbound and outbound network traffic to and from pods
 https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
