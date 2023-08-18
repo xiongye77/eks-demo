@@ -335,6 +335,9 @@ Use of container insight for centralized logging and metrics: To figure out what
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/26e6e444-3eb0-42f3-a3fb-2089f9d31d25)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/ea8df0af-3370-425c-a7aa-7c3870c370b4)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/793a228c-52f9-4111-9e88-2cdd278b9a39)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/fd85d90b-037f-49cc-92fc-9077db202b03)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/118c7887-7a2a-4516-bb45-431e7d2c3ec9)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/21ecb58c-eb63-409f-a656-d638e49308be)
 
 
 
