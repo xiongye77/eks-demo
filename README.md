@@ -329,5 +329,15 @@ Use of container insight for centralized logging and metrics: To figure out what
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/4e4ffe06-19aa-4929-bfc4-e9d14b4dfe2a)
 
 
+# Kubernetes Event-driven Autoscaling
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/9f88b493-9fbf-4531-a178-1f43e613d5c5)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/15f4fb25-72f1-4574-96f8-f33f01b80821)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/26e6e444-3eb0-42f3-a3fb-2089f9d31d25)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/ea8df0af-3370-425c-a7aa-7c3870c370b4)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/793a228c-52f9-4111-9e88-2cdd278b9a39)
+
+
+
+
 # Setting up right resource limits: 
 Once you are done with scalability testing and come up with optimal configuration, setting up the resource limit is critical. You don’t want to set the resource limit too low, as Kubernetes will schedule more pods on worker nodes with a low limit. Now, if these pods get busy simultaneously, there won’t be enough resources for each pod to hit its CPU limits. This will lead to contention and performance degradation in your application.
