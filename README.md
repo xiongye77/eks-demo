@@ -344,3 +344,8 @@ Use of container insight for centralized logging and metrics: To figure out what
 
 # Setting up right resource limits: 
 Once you are done with scalability testing and come up with optimal configuration, setting up the resource limit is critical. You don’t want to set the resource limit too low, as Kubernetes will schedule more pods on worker nodes with a low limit. Now, if these pods get busy simultaneously, there won’t be enough resources for each pod to hit its CPU limits. This will lead to contention and performance degradation in your application.
+
+
+
+
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/4ce025ce-b19c-4f15-a95e-1ec8ad135787)
