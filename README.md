@@ -212,6 +212,11 @@ Because readOnlyRootFileSystem and allowPrivilegeEscalation are both set to fals
 https://kubesandclouds.com/index.php/2022/01/04/karpenter-vs-cluster-autoscaler/
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/5957fec6-42ef-4e54-b698-3368e8c27ff6)
 Karpenter configuration comes in the form of a Provisioner CRD (Custom Resource Definition). A single Karpenter Provisioner is capable of handling many different Pod shapes. Karpenter makes scheduling and provisioning decisions based on Pod attributes such as labels and affinity. A cluster may have more than one Provisioner, but for the moment we'll declare just one: the default Provisioner.
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/08bd8181-b1c5-4bd7-a795-1a15db1060d8)
+https://www.eksworkshop.com/docs/autoscaling/compute/karpenter/
+
+Karpenter configuration comes in the form of a NodePool CRD (Custom Resource Definition). A single Karpenter NodePool is capable of handling many different Pod shapes. Karpenter makes scheduling and provisioning decisions based on Pod attributes such as labels and affinity. A cluster may have more than one NodePool
+
 
 16 next step: Security groups for pods Security groups for pods integrate Amazon EC2 security groups with Kubernetes pods. You can use Amazon EC2 security groups to define rules that allow inbound and outbound network traffic to and from pods
 https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
@@ -349,3 +354,9 @@ Once you are done with scalability testing and come up with optimal configuratio
 
 
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/4ce025ce-b19c-4f15-a95e-1ec8ad135787)
+
+
+# EKS Node Viewer (2024/04/17) 
+https://github.com/awslabs/eks-node-viewer
+EKS Node Viewer is a simple but powerful tool that can be used to improve the efficiency and performance of Kubernetes clusters. It is easy to use and install, and it provides a clear and concise view of node usage. It does not look at the actual pod resource usage.
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/45871417-6ae2-4995-a5d4-9d25b64ebcf2)
