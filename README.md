@@ -360,3 +360,7 @@ Once you are done with scalability testing and come up with optimal configuratio
 https://github.com/awslabs/eks-node-viewer
 EKS Node Viewer is a simple but powerful tool that can be used to improve the efficiency and performance of Kubernetes clusters. It is easy to use and install, and it provides a clear and concise view of node usage. It does not look at the actual pod resource usage.
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/45871417-6ae2-4995-a5d4-9d25b64ebcf2)
+
+
+# EKS DR
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/ef2be347-1124-4934-a456-742719070af4)
