@@ -365,6 +365,34 @@ https://github.com/awslabs/eks-node-viewer
 EKS Node Viewer is a simple but powerful tool that can be used to improve the efficiency and performance of Kubernetes clusters. It is easy to use and install, and it provides a clear and concise view of node usage. It does not look at the actual pod resource usage.
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/45871417-6ae2-4995-a5d4-9d25b64ebcf2)
 
+# EKS Observability
+Observability is a foundational element of a well-architected EKS environment. AWS provides native (CloudWatch) and open source managed (Amazon Managed Service for Prometheus)solutions for monitoring, logging, alarming, and dashboarding of EKS environments.
+
+# Kubernetes logging 
+Kubernetes logging  can be divided into control plane logging, node logging, and application logging. 
+
+# Control Plane logging 
+The Kubernetes control plane is a set of components that manage Kubernetes clusters and produce logs used for auditing and diagnostic purposes. With Amazon EKS, you can turn on logs for different control plane components and send them to Amazon CloudWatch.
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/63162409-5d9e-4dd6-9cc6-eed82103f77f)
+
+
+aws eks update-cluster-config \
+    --region $AWS_REGION \
+    --name $EKS_CLUSTER_NAME \
+    --logging '{"clusterLogging":[{"types":["api","audit","authenticator","controllerManager","scheduler"],"enabled":true}]}'
+sleep 30
+aws eks wait cluster-active --name $EKS_CLUSTER_NAME
+
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/4842197b-dbd7-48b8-8f5b-1332c3689d8c)
+
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/26daeef2-fdca-439b-84b5-429cb5e735cb)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/6a20bcdf-02c4-4f3b-9ef8-70d5bdd2820d)
+
+# Pod logging
+In Kubernetes, container logs are written to /var/log/pods/*.log on the node. Kubelet and container runtime write their own logs to /var/logs or to journald, in operating systems with systemd. Then cluster-wide log collector systems like Fluentd can tail these log files on the node and ship logs for retention. These log collector systems usually run as DaemonSets on worker nodes.
+AWS provides a Fluent Bit image with plugins for both CloudWatch Logs and Kinesis Data Firehose. The AWS for Fluent Bit image is available on the Amazon ECR Public Gallery.(https://gallery.ecr.aws/aws-observability/aws-for-fluent-bit)
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs-FluentBit.html#Container-Insights-FluentBit-setup
+
 
 # EKS DR
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/ef2be347-1124-4934-a456-742719070af4)
