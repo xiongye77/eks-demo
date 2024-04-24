@@ -216,6 +216,10 @@ Karpenter configuration comes in the form of a Provisioner CRD (Custom Resource 
 https://www.eksworkshop.com/docs/autoscaling/compute/karpenter/
 
 Karpenter configuration comes in the form of a NodePool CRD (Custom Resource Definition). A single Karpenter NodePool is capable of handling many different Pod shapes. Karpenter makes scheduling and provisioning decisions based on Pod attributes such as labels and affinity. A cluster may have more than one NodePool
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/88a4b5db-045f-433b-b807-dc09c14742c5)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/80ae4fdb-eb37-4e20-9318-52cb1bcfed7d)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/2c506d56-1f50-4813-9823-0789ddc9e858)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/6b74ce6a-44ea-4527-91c3-8878f98a9e6d)
 
 
 16 next step: Security groups for pods Security groups for pods integrate Amazon EC2 security groups with Kubernetes pods. You can use Amazon EC2 security groups to define rules that allow inbound and outbound network traffic to and from pods
