@@ -393,6 +393,7 @@ In Kubernetes, container logs are written to /var/log/pods/*.log on the node. Ku
 AWS provides a Fluent Bit image with plugins for both CloudWatch Logs and Kinesis Data Firehose. The AWS for Fluent Bit image is available on the Amazon ECR Public Gallery.(https://gallery.ecr.aws/aws-observability/aws-for-fluent-bit)
 https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs-FluentBit.html#Container-Insights-FluentBit-setup
 
+# Observability with OpenSearch
 
 # EKS DR
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/ef2be347-1124-4934-a456-742719070af4)
