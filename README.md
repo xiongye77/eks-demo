@@ -397,3 +397,8 @@ https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insight
 https://github.com/aws-samples/eks-workshop-v2/blob/stable/manifests/modules/observability/opensearch/.workshop/terraform/preprovision/main.tf
 # EKS DR
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/ef2be347-1124-4934-a456-742719070af4)
+
+
+
+
+#  kubectl config get-contexts/kubectl config current-context/kubectl config view/kubectl cluster-info --context /kubectl config get-clusters/kubectl get gitrepo -n namespace
