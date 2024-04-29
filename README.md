@@ -401,7 +401,7 @@ https://github.com/aws-samples/eks-workshop-v2/blob/stable/manifests/modules/obs
 
 
 
-#  kubectl config get-contexts/kubectl config current-context/kubectl config view/kubectl cluster-info --context /kubectl config get-clusters/kubectl get gitrepo -n namespace
+#  kubectl config get-contexts/kubectl config current-context/kubectl config view/kubectl cluster-info --context /kubectl config get-clusters/kubectl get gitrepo -n namespace/kubectl get helmrelease
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/1eaf94b4-de49-4bce-9662-91a494bc357d)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/057ca6a6-3ec9-4240-95b1-3add484e9bd4)
 
