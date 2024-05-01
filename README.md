@@ -411,6 +411,8 @@ https://github.com/aws-samples/eks-workshop-v2/blob/stable/manifests/modules/obs
 
 
 # Securing Kubernetes Secrets: Integrating AWS Secrets Manager with EKS
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/30926670-ab96-449a-af79-debe89e76dc4)
+
 Step 1. Install the Secrets Store CSI Driver and AWS Secrets and Configuration Provider
 helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
 helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
