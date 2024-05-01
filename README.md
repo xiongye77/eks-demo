@@ -406,3 +406,20 @@ https://github.com/aws-samples/eks-workshop-v2/blob/stable/manifests/modules/obs
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/057ca6a6-3ec9-4240-95b1-3add484e9bd4)
 
 # Kustomize is a standalone tool to customize Kubernetes objects through a kustomization file.
+
+
+
+
+# Securing Kubernetes Secrets: Integrating AWS Secrets Manager with EKS
+Step 1. Install the Secrets Store CSI Driver and AWS Secrets and Configuration Provider
+helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
+helm install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
+helm install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/26db24eb-8508-440a-8d95-c2b57c582ac1)
+
+
+step 2 Create AWS Secret Manager secret and create iam role can access the secret and create kubernetes service account, let pod use that service account 
+
+Step 3 Create SecretProviderClass 
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/9ab1718a-d003-4502-88fb-469b8ce7f26e)
