@@ -1,4 +1,4 @@
-# eks-demo 
+ # eks-demo 
 
 # Gitops introduction
 
@@ -419,7 +419,10 @@ helm install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-sto
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/26db24eb-8508-440a-8d95-c2b57c582ac1)
 
 
-step 2 Create AWS Secret Manager secret and create iam role can access the secret and create kubernetes service account, let pod use that service account 
+Step 2 Create AWS Secret Manager secret and create iam role can access the secret and create kubernetes service account, let pod use that service account 
 
 Step 3 Create SecretProviderClass 
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/9ab1718a-d003-4502-88fb-469b8ce7f26e)
+
+Step 4 mount the secret manager as volume to container, please refer 
+https://github.com/xiongye77/eks-demo/blob/main/SecretProviderClass.yaml
