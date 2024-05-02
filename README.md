@@ -428,3 +428,16 @@ Step 3 Create SecretProviderClass
 
 Step 4 mount the secret manager as volume to container, please refer 
 https://github.com/xiongye77/eks-demo/blob/main/SecretProviderClass.yaml
+
+
+# GuardDuty for EKS
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/ec14bcdf-6790-4b4a-acc8-ef1bd5b79f05)
+EKS Audit Log Monitoring when enabled, immediately begins to monitor Kubernetes audit logs from your clusters and analyze them to detect potentially malicious and suspicious activity. It consumes Kubernetes audit log events directly from the Amazon EKS control plane logging feature through an independent stream of flow logs.
+
+
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/8c914f41-4977-4d24-98fb-d42af7efd7db)
+Make sure GuardDuty pod running on EKS nodes
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/5ae6f911-43f0-4518-ace6-7088e1ee935c)
+step 1  run a Pod in the kube-system Namespace that provides access to its shell environment.
+step 2  run "kubectl -n kube-system exec nginx -- pwd"  generate the Execution:Kubernetes/ExecInKubeSystemPod finding 
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/2c8237a1-3743-47ca-a51e-af16ae8c115c)
