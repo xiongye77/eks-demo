@@ -431,6 +431,19 @@ https://github.com/xiongye77/eks-demo/blob/main/SecretProviderClass.yaml
 
 
 # GuardDuty for EKS
+
+we'll enable Amazon GuardDuty EKS Protection. This will provide threat detection coverage for EKS Audit Log Monitoring and EKS Runtime Monitoring to help you protect your clusters.
+
+EKS Audit Log Monitoring uses Kubernetes audit logs to capture chronological activities from users, applications using the Kubernetes API, and the control plane searching for potentially suspicious activities.
+
+EKS Runtime Monitoring uses operating system-level events to help you detect potential threats in Amazon EKS nodes and containers.
+
+
+aws guardduty create-detector --enable --features '[{"Name" : "EKS_AUDIT_LOGS", "Status" : "ENABLED"}, {"Name" : "EKS_RUNTIME_MONITORING", "Status" : "ENABLED", "AdditionalConfiguration" : [{"Name" : "EKS_ADDON_MANAGEMENT", "Status" : "ENABLED"}]}]'
+
+
+
+
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/ec14bcdf-6790-4b4a-acc8-ef1bd5b79f05)
 EKS Audit Log Monitoring when enabled, immediately begins to monitor Kubernetes audit logs from your clusters and analyze them to detect potentially malicious and suspicious activity. It consumes Kubernetes audit log events directly from the Amazon EKS control plane logging feature through an independent stream of flow logs.
 
