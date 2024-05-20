@@ -454,3 +454,17 @@ Make sure GuardDuty pod running on EKS nodes
 step 1  run a Pod in the kube-system Namespace that provides access to its shell environment.
 step 2  run "kubectl -n kube-system exec nginx -- pwd"  generate the Execution:Kubernetes/ExecInKubeSystemPod finding 
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/2c8237a1-3743-47ca-a51e-af16ae8c115c)
+
+
+# Kubernetes PDB
+In Kubernetes, there are different ways to ensure your application is always available. You can set, for example, the right pod resources, autoscaling to make sure your application can keep up with demand and doesn't crash, health checks to restart failing containers or remove them from service and increasing replica count for redundancy.  These are ways to manage disruptions. 
+
+One common disruption that happens all the time is during a deployment. During a deployment, we make sure there is a smooth transition to the new version of your application. You do this by setting a proper deployment strategy such as RollingUpdate. Disruptions can be categorised into two types - voluntary and involuntary disruptions
+
+Pod disruption budgets
+Pod disruption budget (pdb for short) is a Kubernetes resource object that limits the number of Pods of a replicated application that are down simultaneously from voluntary disruptions. For example, say you have an application with multiple replicas and with a pdb set to maxUnavailable: 1, the pdb will only allow one pod to be evicted or down one at a time. This means for example during a node scale down, it will wait for the evicted pod to get rescheduled and run before another pod is evicted or taken down. 
+
+The pdb will also protect the application in cases where rescheduled new pods didn’t come up healthy for some reasons. The pdb will prevent the eviction of the other healthy pods until the new pod is fixed or becomes healthy.
+
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/23bec286-e5b9-4fae-aad6-4712e3aa3035)
+
