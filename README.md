@@ -469,6 +469,13 @@ The pdb will also protect the application in cases where rescheduled new pods di
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/23bec286-e5b9-4fae-aad6-4712e3aa3035)
 
 
+# Deployment 
+Rollback to specific version 
+kubectl rollout undo deployment/application-deployment --to-revision=3
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/984bf641-34d9-4476-865b-8a810c116300)
+
+
+
 # AWS VPC Lattice 
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/cbc08beb-56b8-42c1-ba28-5d6054650b27)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/8747103e-37f2-45dc-88ac-2c380f10d747)
