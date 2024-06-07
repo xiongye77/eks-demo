@@ -480,3 +480,15 @@ kubectl rollout undo deployment/application-deployment --to-revision=3
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/cbc08beb-56b8-42c1-ba28-5d6054650b27)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/8747103e-37f2-45dc-88ac-2c380f10d747)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/97e0de63-dd98-40ec-bb3c-8aebff564926)
+
+
+
+
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/b70af46a-9db1-4500-aaef-1d5101bbd7a2)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/5a3725da-3391-4bd2-85c4-0066ce7c9a69)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/e1018a67-9d0e-40bd-8a02-fdf6c640cc0c)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/db428e39-3b9b-45bc-9b7e-bbc855471688)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/dd76f0e9-cff5-4c49-9de5-f13ada8fc2c8)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/d2205e1c-08d9-47fb-8ee1-68761e85422f)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/d370cd77-1f68-4ea5-b008-83023b3ccdd5)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/52ed8147-e6e3-4419-8098-e670a70da847)
