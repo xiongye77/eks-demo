@@ -492,3 +492,10 @@ kubectl rollout undo deployment/application-deployment --to-revision=3
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/d2205e1c-08d9-47fb-8ee1-68761e85422f)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/d370cd77-1f68-4ea5-b008-83023b3ccdd5)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/52ed8147-e6e3-4419-8098-e670a70da847)
+
+
+
+# EKS cluster endpoint public or private 
+When you create a new cluster, Amazon EKS creates an endpoint for the managed Kubernetes API server that you use to communicate with your cluster (using Kubernetes management tools such as kubectl). By default, this API server endpoint is public to the internet, and access to the API server is secured using a combination of AWS Identity and Access Management (IAM) and native Kubernetes Role Based Access Control (RBAC).
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/baca99f4-b2dc-429a-9abe-7a95c3285bae)
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/1b784dc2-b342-4096-b83e-960ed6615b56)
