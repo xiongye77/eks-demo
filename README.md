@@ -499,3 +499,14 @@ kubectl rollout undo deployment/application-deployment --to-revision=3
 When you create a new cluster, Amazon EKS creates an endpoint for the managed Kubernetes API server that you use to communicate with your cluster (using Kubernetes management tools such as kubectl). By default, this API server endpoint is public to the internet, and access to the API server is secured using a combination of AWS Identity and Access Management (IAM) and native Kubernetes Role Based Access Control (RBAC).
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/baca99f4-b2dc-429a-9abe-7a95c3285bae)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/1b784dc2-b342-4096-b83e-960ed6615b56)
+
+
+
+# Identity Provider type
+
+OpenID Connect is more suited for modern applications, especially those requiring both authentication and authorization through simple, JSON-based protocols.
+SAML is better suited for enterprise environments where XML-based protocols are used for SSO and user authentication in a more traditional setup.
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/f575e519-02ca-40b6-aaa9-638f28374d59)
+
+
+![image](https://github.com/xiongye77/eks-demo/assets/36766101/f8a9d941-fa9e-41d9-a039-954e5187f707)
