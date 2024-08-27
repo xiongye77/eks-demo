@@ -7,6 +7,12 @@
 ![image](https://user-images.githubusercontent.com/36766101/207506596-2064a66d-88d0-4df7-aab9-f36e06fa774d.png)
 
 
+# Github action CI with Gitops CD
+
+![image](https://github.com/user-attachments/assets/bea57bd9-acf6-44f3-a662-222bc0db1678)
+The GitHub Action pipeline will build, tag, and then push the image of the source code into the private repository in Amazon ECR.
+In the second and last article of this series, we will configure Argo CD (adding the app and the GitHub Repository to Argo CD, creating a secret in the Kubernetes cluster to connect Amazon ECR, etc.). After that, we will change the source code, push it to GitHub, and observe the results of this. The GitHub Action pipeline will be triggered automatically, and it will send the new image into the Amazon ECR. Then, Argo CD will automatically synchronize the Kubernetes cluster according to the changes in the yaml files, when it detects the changes in GitHub. Finally, we will observe the running of Argo CD by changing the number of Replicas in the Kubernetes manifest yaml file.
+
 # Prerequisite 
 
 
