@@ -226,6 +226,11 @@ Karpenter configuration comes in the form of a NodePool CRD (Custom Resource Def
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/80ae4fdb-eb37-4e20-9318-52cb1bcfed7d)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/2c506d56-1f50-4813-9823-0789ddc9e858)
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/6b74ce6a-44ea-4527-91c3-8878f98a9e6d)
+<img width="1200" alt="image" src="https://github.com/user-attachments/assets/2fc8b59a-fb49-48b8-b6ba-bd00801c9b43">
+<img width="1231" alt="image" src="https://github.com/user-attachments/assets/ea2971ae-4409-49b4-a80d-866d07138274">
+<img width="1718" alt="image" src="https://github.com/user-attachments/assets/b849aafe-369b-4be7-80e8-810277ef67a5">
+<img width="702" alt="image" src="https://github.com/user-attachments/assets/cbec2563-f486-4146-9407-7b209040b46f">
+<img width="661" alt="image" src="https://github.com/user-attachments/assets/8508f206-5139-4d9d-9bf9-a0a99c577e1c">
 
 
 16 next step: Security groups for pods Security groups for pods integrate Amazon EC2 security groups with Kubernetes pods. You can use Amazon EC2 security groups to define rules that allow inbound and outbound network traffic to and from pods
