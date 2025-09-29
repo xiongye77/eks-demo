@@ -1,4 +1,4 @@
- # eks-demo 
+ff. # eks-demo 
 
 # Gitops introduction
 
@@ -401,8 +401,46 @@ aws eks wait cluster-active --name $EKS_CLUSTER_NAME
 
 # Pod logging
 In Kubernetes, container logs are written to /var/log/pods/*.log on the node. Kubelet and container runtime write their own logs to /var/logs or to journald, in operating systems with systemd. Then cluster-wide log collector systems like Fluentd can tail these log files on the node and ship logs for retention. These log collector systems usually run as DaemonSets on worker nodes.
-AWS provides a Fluent Bit image with plugins for both CloudWatch Logs and Kinesis Data Firehose. The AWS for Fluent Bit image is available on the Amazon ECR Public Gallery.(https://gallery.ecr.aws/aws-observability/aws-for-fluent-bit)
+AWS provides a Fluent Bit image with plugins for both CloudWatch Logs and Kinesis Data Firehose. 
+
+The AWS for Fluent Bit image is available on the Amazon ECR Public Gallery.(https://gallery.ecr.aws/aws-observability/aws-for-fluent-bit)
 https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs-FluentBit.html#Container-Insights-FluentBit-setup
+
+<img width="832" height="784" alt="image" src="https://github.com/user-attachments/assets/4c2407c0-bc34-4043-8af9-9903db0a8620" />
+
+# Metric Server 
+Kubnernetes Metrics Server scrapes each node’s Kubelet (Summary API) and exposes CPU & memory usage for:
+
+1 Pods (and even per-container: kubectl top pod --containers)
+
+2 Nodes (kubectl top node)
+
+# Install Kubernetes Metrics Server on every cluster (EKS & AKS) for kubectl top and basic HPA on CPU/memory.
+
+# For real monitoring/alerts & HPA on custom/app metrics, use Prometheus (managed if possible):
+
+1 EKS: Amazon Managed Prometheus (AMP) + kube-state-metrics + node-exporter.AWS Distro for OpenTelemetry
+
+2 AKS: Azure Monitor managed Prometheus (container insights) or self-hosted Prometheus.
+
+Autoscaling on CPU/Memory only: Metrics Server (required by HPA v2 for resource metrics).
+
+Autoscaling on custom metrics / SLOs (RPS, latency, queue depth): Prometheus + Prometheus Adapter (exposes custom metrics to HPA).
+
+Dashboards & alerts: Prometheus + Grafana (or CloudWatch/Azure Monitor with their Grafana integrations).
+
+# Amazon Managed Service for Prometheus (AMP) is designed to plug straight into Amazon Managed Grafana (AMG) as a native data source
+
+
+# ADOT = AWS Distro for OpenTelemetry.
+
+It’s Amazon’s supported build of OpenTelemetry (collector + SDKs) that you run on AWS (EKS, EC2, ECS, Lambda) to collect metrics, traces, and logs and send them to backends like:
+
+1 Amazon Managed Prometheus (AMP) / CloudWatch for metrics
+
+2 AWS X-Ray / OTLP backends (e.g., Jaeger, Tempo) for traces
+
+3 OpenSearch/CloudWatch Logs (via exporters) for logs
 
 # Observability with OpenSearch
 https://github.com/aws-samples/eks-workshop-v2/blob/stable/manifests/modules/observability/opensearch/.workshop/terraform/preprovision/main.tf
