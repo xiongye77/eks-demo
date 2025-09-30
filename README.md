@@ -1,4 +1,4 @@
-ff. # eks-demo 
+# eks-demo 
 
 # Gitops introduction
 
@@ -378,6 +378,29 @@ EKS Node Viewer is a simple but powerful tool that can be used to improve the ef
 
 # EKS Observability
 Observability is a foundational element of a well-architected EKS environment. AWS provides native (CloudWatch) and open source managed (Amazon Managed Service for Prometheus)solutions for monitoring, logging, alarming, and dashboarding of EKS environments.
+
+# Option A — EKS add-on (fastest):
+
+1 Ensure IRSA/permissions (the add-on installs CloudWatch Agent + Fluent Bit and can enable Application Signals).
+
+2 Enable:
+
+aws eks create-addon \
+  --cluster-name <your-cluster> \
+  --addon-name amazon-cloudwatch-observability
+
+
+You’ll start seeing CPU, memory, disk, network, and node condition metrics under CloudWatch → Container Insights.
+
+
+# Option B — Manual (more control):
+Deploy the CloudWatch Agent DaemonSet (metrics) and Fluent Bit DaemonSet (logs) into the amazon-cloudwatch namespace, plus the cwagentconfig ConfigMap.
+
+# Alternative: ADOT path to Container Insights
+
+You can also run the ADOT Collector as a DaemonSet to collect the same Kubernetes/node metrics and export them to CloudWatch Container Insights (and optionally AMP/Grafana) — handy if you want one OpenTelemetry pipeline.
+
+
 
 # Kubernetes logging 
 Kubernetes logging  can be divided into control plane logging, node logging, and application logging. 
