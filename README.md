@@ -376,7 +376,9 @@ https://github.com/awslabs/eks-node-viewer
 EKS Node Viewer is a simple but powerful tool that can be used to improve the efficiency and performance of Kubernetes clusters. It is easy to use and install, and it provides a clear and concise view of node usage. It does not look at the actual pod resource usage.
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/45871417-6ae2-4995-a5d4-9d25b64ebcf2)
 
-# EKS Observability
+
+
+# EKS Observability (2025/09/30)
 Observability is a foundational element of a well-architected EKS environment. AWS provides native (CloudWatch) and open source managed (Amazon Managed Service for Prometheus)solutions for monitoring, logging, alarming, and dashboarding of EKS environments.
 
 # Option A — EKS add-on (fastest):
@@ -471,7 +473,18 @@ https://github.com/aws-samples/eks-workshop-v2/blob/stable/manifests/modules/obs
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/ef2be347-1124-4934-a456-742719070af4)
 
 
+# Falco container runtime monitor (2025/09/30)
+Falco DaemonSet on every node (use the eBPF driver; no kernel modules to compile)
 
+Falco, an open-source tool developed by Sysdig, provides powerful host-level security monitoring capabilities for container environments. It offers runtime threat detection by monitoring abnormal behavior in containers and Kubernetes clusters. Falco’s key features include:
+
+1 Custom and predefined security rules
+2 Alert generation when rules are triggered
+3 Efficient system call monitoring using eBPF or kernel modules
+4 Real-time threat detection capabilities
+
+monitor folowing container abnormal behaviour such as 
+Interactive shell in containers (production)/Writes to sensitive paths/Host filesystem mount / hostPath usage
 
 #  kubectl config get-contexts/kubectl config current-context/kubectl config view/kubectl cluster-info --context /kubectl config get-clusters/kubectl get gitrepo -n namespace/kubectl get helmrelease
 ![image](https://github.com/xiongye77/eks-demo/assets/36766101/1eaf94b4-de49-4bce-9662-91a494bc357d)
